@@ -12,6 +12,17 @@ repositories {
     mavenCentral()
 }
 
+import org.codeartisans.gradle.wsdl.*
+
+task generateWsdlClients( type: WsdlToJava ) {
+    wsdls {
+        temperatureSoapWebService {
+            wsdl = "src/main/wsdl/temperatureSoapWebService.wsdl"
+            packageName = "org.imt.nordeurope.j2ee.webservices.nickler.client"
+        }
+    }
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
